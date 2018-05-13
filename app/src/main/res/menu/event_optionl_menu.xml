@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/event_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home"
+        app:showAsAction="always"
+        android:iconTint="@color/white"
+        />
+
+
+    <item
+        android:id="@+id/event_create"
+        android:icon="@drawable/ic_add_event"
+        android:title="Create Event"
+        app:showAsAction="always"
+        android:iconTint="@color/white"
+        />
+
+
+</menu>

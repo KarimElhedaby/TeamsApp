@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/comment_profile_IV"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_profile"
+        app:civ_border_color="#000"
+        app:civ_border_width="2dp" />
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Comment_nameTV"
+            style="@style/EventTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:text="Jasmin ghazy "
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/Comment_contentTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLength="120"
+            android:maxLines="5"
+            android:text="Jasmin ghazy "
+            android:textSize="13dp"
+            />
+    </LinearLayout>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             style="@style/EventTextViewStyle"
+             android:text="12.00 am "
+             android:layout_gravity="center"
+             android:textStyle="normal"
+             android:textColor="@color/colorPrimary"
+             android:id="@+id/Comment_DateTV"
+             />
+
+</LinearLayout>

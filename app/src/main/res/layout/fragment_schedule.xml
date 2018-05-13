@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.teamapp.teamapp.schedule.ui.ScheduleFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center|top"
+    android:layout_marginTop="60dp"
+
+    >
+    <Button
+      android:text="Create Project"
+        style="@style/ButtonStyle"
+        android:layout_width="250dp"
+        android:layout_marginBottom="7dp"
+        android:id="@+id/createprojectB"
+        />
+    <Button
+        android:text="Create Meeting"
+        style="@style/ButtonStyle"
+        android:layout_width="250dp"
+        android:layout_marginBottom="7dp"
+        android:id="@+id/createMeetigB"
+        />
+    <Button
+        android:text="Create Event"
+        style="@style/ButtonStyle"
+        android:layout_width="250dp"
+        android:layout_marginBottom="7dp"
+        android:id="@+id/createEventB"
+        />
+    <Button
+        android:text="Create Vote"
+        style="@style/ButtonStyle"
+        android:layout_width="250dp"
+        android:layout_marginBottom="7dp"
+        android:id="@+id/createVoteB"
+        />
+
+
+
+
+</LinearLayout>
+
+</FrameLayout>

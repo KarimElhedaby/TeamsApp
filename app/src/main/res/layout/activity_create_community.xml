@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/EventTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Community Name" />
+
+            <EditText
+                android:id="@+id/communityNameET"
+                style="@style/EditTextStyle"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="2dp"
+                android:hint="Type Name Here !"
+                android:maxLength="25"
+                android:maxLines="1" />
+
+            <TextView
+                style="@style/EventTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/community_description" />
+
+            <EditText
+                android:id="@+id/CommunityDescriptionET"
+                style="@style/EditTextStyle"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="2dp"
+                android:hint="@string/write_a_brief_description_about_community"
+                android:maxLength="50"
+                android:maxLines="5"
+                android:layout_height="100dp"
+                />
+
+            <TextView
+                style="@style/EventTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invite Members" />
+
+            <EditText
+                android:id="@+id/communityInviteET"
+                style="@style/EditTextStyle"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="2dp"
+                android:hint="Invite Members Here!"
+
+                android:maxLength="50"
+                android:maxLines="3"
+                android:layout_height="100dp"/>
+            <Button
+                style="@style/ButtonStyle"
+                android:text="Save"
+                android:layout_gravity="right"
+                android:layout_margin="3dp"/>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>

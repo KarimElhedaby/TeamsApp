@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.teamapp.teamapp.profile.ui.ProfileViewActivity"
+    tools:showIn="@layout/activity_profile_view">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                app:cardBackgroundColor="@android:color/darker_gray"
+                app:cardCornerRadius="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:padding="3dp"
+                    android:text="@string/contact_information"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                style="@style/EventTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                android:text="Name" />
+
+            <TextView
+                android:id="@+id/profile_View_name_TV"
+                style="@style/EditTextStyle"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="0dp"
+                android:gravity="left|center"
+                android:maxLength="45"
+                android:maxLines="1"
+                android:text="KArim EL_gharib ELhedaby" />
+
+            <TextView
+                style="@style/EventTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                android:text="@string/address" />
+
+            <TextView
+                android:id="@+id/profile_View_Address_TV"
+                style="@style/EditTextStyle"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="0dp"
+                android:gravity="left|center"
+                android:maxLength="45"
+                android:maxLines="1"
+                android:text="Ismalia , Al5amsa" />
+
+            <TextView
+                style="@style/EventTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                android:text="@string/phone" />
+
+            <TextView
+                android:id="@+id/profile_View_Phone_TV"
+                style="@style/EditTextStyle"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="0dp"
+                android:gravity="left|center"
+                android:maxLength="45"
+                android:maxLines="1"
+                android:text="01064646308" />
+
+            <TextView
+                style="@style/EventTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                android:text="@string/gender" />
+
+            <TextView
+                android:id="@+id/profile_View_Gender_TV"
+                style="@style/EditTextStyle"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="0dp"
+                android:gravity="left|center"
+                android:maxLength="45"
+                android:maxLines="1"
+                android:text="@string/male" />
+
+            <TextView
+                style="@style/EventTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                android:text="@string/birthdate" />
+
+            <TextView
+                android:id="@+id/profile_View_Birthdate_TV"
+                style="@style/EditTextStyle"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="0dp"
+                android:gravity="left|center"
+                android:maxLength="45"
+                android:maxLines="1"
+                android:text="6/10/1996" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_marginBottom="2dp"
+                app:cardBackgroundColor="@android:color/darker_gray"
+                app:cardCornerRadius="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:padding="3dp"
+                    android:text="Interests "
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/profile_Interests_View_RV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="2dp" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                app:cardBackgroundColor="@android:color/darker_gray"
+                app:cardCornerRadius="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:padding="3dp"
+                    android:text="@string/skills"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/profile_skills_View_RV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="2dp" />
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.teamapp.teamapp.event.ui.EventDetails"
+    tools:showIn="@layout/activity_event_details">
+
+
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/EventTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title" />
+
+                <TextView
+                    android:id="@+id/eventTitle_details_TV"
+                    style="@style/EditTextStyle"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="left|center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="2dp"
+                    android:hint="@string/title_of_the_meeting"
+                    android:maxLength="25"
+                    android:maxLines="1" />
+
+                <TextView
+                    style="@style/EventTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description" />
+
+                <TextView
+                    android:id="@+id/eventDescription_details_TV"
+                    style="@style/EditTextStyle"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="left|center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="2dp"
+                    android:hint="@string/write_a_brief_description_of_event_purpose"
+                    android:maxLength="50"
+                    android:maxLines="3" />
+
+                <TextView
+                    style="@style/EventTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/community" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/event_community_details_TV"
+                        style="@style/EditTextStyle"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:hint="@string/choose_a_community"
+                        android:maxLength="25"
+                        android:maxLines="1" />
+
+
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/EventTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/eventLocation_details_TV"
+                        style="@style/EditTextStyle"
+                        android:gravity="left|center"
+                        android:layout_width="280dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="2dp"
+                        android:hint="@string/city_place"
+                        android:maxLength="25"
+                        android:maxLines="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_location" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/EventTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date" />
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/eventDate_details_TV"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="Tue Feb 13"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/eventTime_details-TV"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="6 30 AM"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="2dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@android:color/darker_gray" />
+
+
+            </LinearLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

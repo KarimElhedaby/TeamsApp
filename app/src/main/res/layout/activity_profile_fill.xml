@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar_profile_fill">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:text="Profile"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <!--<TextView-->
+                    <!--style="@style/ButtonStyle"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:clickable="true"-->
+                    <!--android:gravity="center"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:text="Save"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="italic" />-->
+
+
+                </RelativeLayout>
+
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profileF_IV"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_profile"
+                    app:civ_border_color="#fff"
+                    app:civ_border_width="2dp" />
+
+
+                <TextView
+                    android:id="@+id/profileView_barnameTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:text="Karim G.elhedaby"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_profile_fill"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/profileF_nameET"
+                style="@style/EditTextStyle"
+                android:layout_marginTop="10dp"
+                android:hint="Name" />
+
+            <EditText
+                android:id="@+id/profileF_addressET"
+                style="@style/EditTextStyle"
+                android:layout_marginTop="10dp"
+                android:hint="Address" />
+
+            <EditText
+                android:id="@+id/profileF_phoneET"
+                style="@style/EditTextStyle"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:hint="Phone Number"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/profileF_ReligiousET"
+                style="@style/EditTextStyle"
+                android:layout_marginTop="10dp"
+                android:hint="Religious" />
+
+            <EditText
+                android:id="@+id/profileF_WorkET"
+                style="@style/EditTextStyle"
+                android:layout_marginTop="10dp"
+                android:hint="Work" />
+
+            <EditText
+                android:id="@+id/profileF_EducationET"
+                style="@style/EditTextStyle"
+                android:layout_marginTop="10dp"
+                android:hint="Education" />
+
+            <Button
+                android:id="@+id/profileF_dateB"
+                style="@style/EditTextStyle"
+                android:gravity="start|center_vertical"
+                android:text="Birth date"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Skills "
+                android:textColor="#000"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/Profile_skillsF_ET"
+                    style="@style/EditTextStyle"
+                    android:layout_width="230dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:hint=" skill "
+                    android:maxLength="20"
+                    android:maxLines="1" />
+
+                <Button
+                    android:id="@+id/profile_add_skillsF_B"
+                    style="@style/ButtonStyle"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text="add"
+                    android:textAllCaps="false"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/cardview_shadow_start_color"
+                app:cardCornerRadius="5dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/profile_skillsF_RV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

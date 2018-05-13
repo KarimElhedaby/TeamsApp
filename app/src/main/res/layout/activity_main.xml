@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.teamapp.teamapp.ui.MainActivity">
+
+    <Button
+        android:id="@+id/registerB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="register " />
+
+    <Button
+        android:id="@+id/loginB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login " />
+
+    <Button
+        android:id="@+id/profileB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="profile " />
+
+    <Button
+        android:id="@+id/profileViewB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="profile View" />
+
+    <Button
+        android:id="@+id/homeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="home " />
+
+    <Button
+        android:id="@+id/feedbackB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FeedBack " />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout " />
+    <Button
+        android:id="@+id/updateB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update " />
+
+</LinearLayout>
