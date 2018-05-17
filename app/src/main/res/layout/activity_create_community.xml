@@ -65,6 +65,7 @@
             <Button
                 style="@style/ButtonStyle"
                 android:text="Save"
+                android:id="@+id/communitySaveB"
                 android:layout_gravity="right"
                 android:layout_margin="3dp"/>
 

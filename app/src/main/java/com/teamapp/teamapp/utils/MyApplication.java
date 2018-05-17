@@ -19,9 +19,7 @@ public class MyApplication extends Application {
 
         getPrefManager (getApplicationContext());
         logout();
-
     }
-
 
     public static MyPreferenceManager getPrefManager(Context context) {
         if (pref == null) {

@@ -1,15 +1,90 @@
 package com.teamapp.teamapp.community.ui;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.teamapp.teamapp.R;
+import com.teamapp.teamapp.community.model.Community;
+import com.teamapp.teamapp.utils.Utilities;
+import org.json.JSONArray;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CreateCommunityActivity extends AppCompatActivity {
+    @BindView(R.id.communityNameET)
+    EditText communityNameET;
+    @BindView(R.id.CommunityDescriptionET)
+    EditText CommunityDescriptionET;
+    @BindView(R.id.communityInviteET)
+    EditText communityInviteET;
+    @BindView(R.id.communitySaveB)
+    Button communitySaveB;
+
+    Community community;
+
+    String communityName, CommunityDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_community);
+        ButterKnife.bind(this);
+    }
+
+
+    private void get_EnteredData() {
+        communityName = communityNameET.getText().toString().trim();
+        CommunityDescription = CommunityDescriptionET.getText().toString().trim();
+    }
+
+    @OnClick(R.id.communitySaveB)
+    public void createCommunity() {
+        get_EnteredData();
+        if (communityName.isEmpty()) {
+            communityNameET.setError(getString(R.string.enter_name));
+        } else if (CommunityDescription.isEmpty()) {
+            CommunityDescriptionET.setError(getString(R.string.enterdescription));
+
+        } else {
+            Utilities.showLoadingDialog(this, Color.GRAY);
+
+            community = new Community(communityName, CommunityDescription, 1);
+
+            AndroidNetworking.post("http://team-space.000webhostapp.com/index.php/api/community/add")
+                    .addBodyParameter(community) // posting java object
+                    .setPriority(Priority.HIGH)
+                    .build()
+                    .getAsJSONArray(new JSONArrayRequestListener() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            Utilities.dismissLoadingDialog();
+                            Toast.makeText(CreateCommunityActivity.this,
+                                    "data send succsefully",
+                                    Toast.LENGTH_LONG).show();
+                            Log.d("Data", community.toString());
+                        }
+
+
+                        @Override
+                        public void onError(ANError error) {
+                            // handle error
+
+                            Log.d("Data", error.toString());
+                            Utilities.dismissLoadingDialog();
+
+                        }
+                    });
+
+
+        }
     }
 }

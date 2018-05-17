@@ -14,8 +14,6 @@ public class ActivityLauncher {
 
     public static final String Event_KEY = "event";
 
-
-
     public static void openEvent_DetailsActivity(Context context, EventData eventData){
         Intent i = new Intent(context, EventDetails.class);
         i.putExtra(Event_KEY, eventData);

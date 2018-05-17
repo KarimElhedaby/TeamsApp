@@ -48,10 +48,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout " />
+
     <Button
         android:id="@+id/updateB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update " />
 
+    <Button
+        android:id="@+id/groupB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group " />
+
+    <Button
+        android:id="@+id/memberB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Member " />
 </LinearLayout>

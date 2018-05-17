@@ -47,7 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
     String userName, password, cPassword, gender, email;
     String gender_index;
     static User user;
-    int user_Id;
     static User user_Pref;
     List<User> users;
 

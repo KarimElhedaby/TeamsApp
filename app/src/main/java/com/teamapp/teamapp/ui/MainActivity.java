@@ -14,8 +14,11 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.teamapp.teamapp.R;
 import com.teamapp.teamapp.event.ui.EventFeedBack;
+import com.teamapp.teamapp.group.ui.CreateGroup_Activity;
+import com.teamapp.teamapp.members.ui.AddMember_Activity;
 import com.teamapp.teamapp.profile.ui.ProfileFillActivity;
 import com.teamapp.teamapp.profile.ui.ProfileViewActivity;
+import com.teamapp.teamapp.user.model.User;
 import com.teamapp.teamapp.user.ui.LoginActivity;
 import com.teamapp.teamapp.user.ui.RegisterActivity;
 import com.teamapp.teamapp.utils.MyApplication;
@@ -24,12 +27,13 @@ import org.json.JSONArray;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button register, login, profile, home, feedback, profileView, logout, updateB;
-
+    Button register, login, profile, home, feedback, profileView, logout, updateB , groupB ,memberB;
+    static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         login = findViewById(R.id.loginB);
         register = findViewById(R.id.registerB);
         profile = findViewById(R.id.profileB);
@@ -38,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         feedback = findViewById(R.id.feedbackB);
         logout = findViewById(R.id.logout);
         updateB = findViewById(R.id.updateB);
+        groupB = findViewById(R.id.groupB);
+        memberB =findViewById(R.id.memberB) ;
+
         login.setOnClickListener(this);
         register.setOnClickListener(this);
         profile.setOnClickListener(this);
@@ -46,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         profileView.setOnClickListener(this);
         logout.setOnClickListener(this);
         updateB.setOnClickListener(this);
+        groupB.setOnClickListener(this);
+        memberB.setOnClickListener(this);
 
 
         if (MyApplication.getPrefManager(MainActivity.this).getUser() == null) {
@@ -57,10 +66,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void upadateData() {
-
+        user = new User("karim@gmail.com", "karim", "karimkarim", "male");
         AndroidNetworking.put("http://team-space.000webhostapp.com/index.php/api/users/update/{id}")
-                .addPathParameter("id", "65").
-                addBodyParameter("Religious", "Muslim").
+                .addPathParameter("id", String.valueOf(65)).
+                addBodyParameter(user).
+//                addBodyParameter("Religious", "Muslim").
                 setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONArray(new JSONArrayRequestListener() {
@@ -126,6 +136,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.updateB:
                 upadateData();
+                break;
+            case R.id.groupB:
+                Intent intent6 = new Intent(this, CreateGroup_Activity.class);
+                this.startActivity(intent6);
+                break;
+            case R.id.memberB:
+                Intent intent7 = new Intent(this, AddMember_Activity.class);
+                this.startActivity(intent7);
                 break;
 
 

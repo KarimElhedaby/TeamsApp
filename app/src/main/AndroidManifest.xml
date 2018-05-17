@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -69,11 +70,21 @@
         <activity
             android:name=".community.ui.CommunityActivity"
             android:label="@string/title_activity_community"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".community.ui.CreateCommunityActivity"
             android:label="Create Community"
-            android:parentActivityName=".community.ui.CommunityActivity"></activity>
+            android:parentActivityName=".community.ui.CommunityActivity" />
+
+        <meta-data
+            android:name="CLOUDINARY_URL"
+            android:value="cloudinary://@dellx1eea" />
+
+        <activity
+            android:name=".group.ui.CreateGroup_Activity"
+            android:label="Create Group"
+            android:parentActivityName=".community.ui.CreateCommunityActivity" />
+        <activity android:name=".members.ui.AddMember_Activity"></activity>
     </application>
 
 </manifest>

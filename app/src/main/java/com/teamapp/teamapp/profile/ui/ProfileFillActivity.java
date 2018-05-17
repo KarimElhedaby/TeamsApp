@@ -23,6 +23,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -31,19 +32,35 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.UploadProgressListener;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.policy.TimeWindow;
+import com.cloudinary.android.policy.UploadPolicy;
+import com.cloudinary.utils.ObjectUtils;
 import com.teamapp.teamapp.R;
+import com.teamapp.teamapp.community.model.Community;
 import com.teamapp.teamapp.profile.adapter.ProfileFillAdapter;
 import com.teamapp.teamapp.profile.model.ProfileData;
+import com.teamapp.teamapp.ui.MainActivity;
 import com.teamapp.teamapp.utils.DatePickerFragment;
 import com.teamapp.teamapp.utils.RecyclerItemTouchHelper;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -114,6 +131,7 @@ public class ProfileFillActivity
         ButterKnife.bind(this);
 //        data_interest_List = new ArrayList<>();
         data_skill_list = new ArrayList<>();
+        MediaManager.init(this);
 //        profileF_interest_RV.setLayoutManager
 //                (new LinearLayoutManager(this,
 //                        LinearLayoutManager.VERTICAL, false));
@@ -161,14 +179,6 @@ public class ProfileFillActivity
 
     }
 
-//            @OnClick(R.id.profile_add_interestsF_B)
-//    void addInterestData() {
-//        String interest_data = profileF_interestes_ET.getText().toString();
-//        data = new ProfileData(interest_data);
-//        interest_adapter.addData(data);
-//        profileF_interestes_ET.setText(" ");
-//    }
-
     @OnClick(R.id.profile_add_skillsF_B)
     void addSkillData() {
         String skill_data = profileF_skill_ET.getText().toString();
@@ -177,7 +187,8 @@ public class ProfileFillActivity
         profileF_skill_ET.setText(" ");
     }
 
-
+    File photoFile;
+    Uri photoURI ;
     @OnClick(R.id.profileF_IV)
     void showImagePickerDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -196,18 +207,18 @@ public class ProfileFillActivity
                                 } else {
                                     Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                                     if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                                        File photoFile = null;
+                                        photoFile = null;
                                         try {
                                             photoFile = createImageFile();
                                         } catch (IOException ex) {
                                             ex.printStackTrace();
                                         }
                                         if (photoFile != null) {
-                                            Uri photoURI = FileProvider.getUriForFile(ProfileFillActivity.this,
+                                             photoURI = FileProvider.getUriForFile(ProfileFillActivity.this,
                                                     "com.teamapp.teamapp.Fileprovider", photoFile);
                                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                                             startActivityForResult(takePictureIntent, CAMERA_REQUEST);
-                                        }
+                                         }
                                     }
                                 }
                             }
@@ -271,19 +282,78 @@ public class ProfileFillActivity
         mCurrentPhotoPath = imageFile.getAbsolutePath();
         return imageFile;
     }
+//
+//    void SendImage (){
+//        final Community community = new Community( imageFile );
+//        AndroidNetworking.upload(" http://team-space.000webhostapp.com/index.php/api/community/add")
+//                .addMultipartFile(String.valueOf(community.getCommunity_picture()),imageFile)
+//                .setTag("uploadTest")
+//                .setPriority(Priority.HIGH)
+//                .build()
+//                .setUploadProgressListener(new UploadProgressListener() {
+//                    @Override
+//                    public void onProgress(long bytesUploaded, long totalBytes) {
+//                        // do anything with progress
+//                    }
+//                })
+//                .getAsJSONObject(new JSONObjectRequestListener() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//
+//                        // do anything with response
+//                        Log.d("postData", "true send");
+////                            Toast.makeText(RegisterActivity.this, error.getMessage(),
+////                                    Toast.LENGTH_LONG).show();
+////
+////                            Log.d("Data", user.toString());
+//
+//                        Toast.makeText(ProfileFillActivity.this, "data send true",
+//                                Toast.LENGTH_LONG).show();
+//                    }
+//                    @Override
+//                    public void onError(ANError error) {
+//                        // handle error
+//                        Log.d("postData", error.getMessage());
+////                            Toast.makeText(RegisterActivity.this, error.getMessage(),
+////                                    Toast.LENGTH_LONG).show();
+////
+////                            Log.d("Data", user.toString());
+//
+//                        Toast.makeText(ProfileFillActivity.this, "data send Errorly",
+//                                Toast.LENGTH_LONG).show();
+//                    }
+//                });
+
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
             selectedImageUri = data.getData();
+            Map config = new HashMap();
+            config.put("cloud_name", "dellx1eea");
+            config.put("api_key", "218769539232644");
+            config.put("api_secret", "aFZL72YMfJQe_YiFnY9kBF1ZNDU");
+            Cloudinary cloudinary = new Cloudinary(config);
+            try {
+                Map uploadResult =  cloudinary.uploader().upload(photoFile.getAbsolutePath(),
+                        ObjectUtils.emptyMap());
+
+               String requestId = (String) uploadResult.get("url");
+
+                Toast.makeText(getApplicationContext(),requestId, Toast.LENGTH_LONG).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_GRANTED) {
                 readFileFromSelectedURI();
             } else {
                 ActivityCompat.requestPermissions(this,
-                        new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                        1);
+                        new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+
             }
         } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             setPic();
@@ -326,6 +396,7 @@ public class ProfileFillActivity
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         profileF_date_B.setText(dayOfMonth + " / " + (month + 1) + " / " + year);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -341,8 +412,8 @@ public class ProfileFillActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_save) {
+//            SendImage();
         }
         return super.onOptionsItemSelected(item);
     }

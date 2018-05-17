@@ -52,4 +52,11 @@ dependencies {
     compile 'com.github.brnunes:swipeablerecyclerview:1.0.2'
     compile 'io.huannguyen.swipeablerv:swipeable-rv:1.0.2'
 
+//Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+
+    implementation 'com.cloudinary:cloudinary-android:1.22.0'
+
+
 }
