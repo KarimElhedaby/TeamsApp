@@ -27,6 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
 public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.LoginemailET)
     EditText emailET;
@@ -86,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onResponse(List<User> response) {
                                     Utilities.dismissLoadingDialog();
                                     users = response;
-                                    Log.d("Recived_users", "Number of user received: " +
+                                    Log.d("Recived_users", "Number of user_mention_row received: " +
                                             users.toString());
 
                                     if (check_MailConsist() == true) {
@@ -116,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                     && users.get(i).getPassword().equals(password)) {
                 Toast.makeText(LoginActivity.this, "true login", Toast.LENGTH_LONG).show();
 
-                // storing user in shared preferences
+                // storing user_mention_row in shared preferences
                 MyApplication.getPrefManager(LoginActivity.this).storeUser(users.get(i));
                 // start main activity
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));

@@ -2,8 +2,8 @@ package com.teamapp.teamapp.user.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
@@ -104,9 +104,8 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onResponse(List<User> response) {
 
                                 users = response;
-                                Log.d("Recived_users", "Number of user received: " +
+                                Log.d("Recived_users", "Number of users received: " +
                                         users.toString());
-//                                Toast.makeText(RegisterActivity.this, users.toString(), Toast.LENGTH_LONG).show();
 
                             }
 
@@ -172,18 +171,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                         @Override
                         public void onError(ANError error) {
-                            // handle error
-//                            Log.d("postData", error.getMessage());
-//                            Toast.makeText(RegisterActivity.this, error.getMessage(),
-//                                    Toast.LENGTH_LONG).show();
-//
-//                            Log.d("Data", user.toString());
 
                             Toast.makeText(RegisterActivity.this, "data send succsefully",
                                     Toast.LENGTH_LONG).show();
                             Log.d("Data", user.toString());
                             Utilities.dismissLoadingDialog();
-                            // storing user in shared preferences
+                            // storing user_mention_row in shared preferences
                             MyApplication.getPrefManager(RegisterActivity.this).storeUser(user_Pref);
                             // start main activity
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));

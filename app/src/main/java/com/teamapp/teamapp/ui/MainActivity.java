@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void upadateData() {
         user = new User("karim@gmail.com", "karim", "karimkarim", "male");
-        AndroidNetworking.put("http://team-space.000webhostapp.com/index.php/api/users/update/{id}")
-                .addPathParameter("id", String.valueOf(65)).
+        AndroidNetworking.put("http://team-space.000webhostapp.com/index.php/api/users/update/{User_id}")
+                .addPathParameter("User_id", String.valueOf(67)).
                 addBodyParameter(user).
 //                addBodyParameter("Religious", "Muslim").
                 setPriority(Priority.HIGH)
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            Toast.makeText(RegisterActivity.this, error.getMessage(),
 //                                    Toast.LENGTH_LONG).show();
 //
-//                            Log.d("Data", user.toString());
+//                            Log.d("Data", user_mention_row.toString());
 
                         Toast.makeText(MainActivity.this, "data send Errorly",
                                 Toast.LENGTH_LONG).show();

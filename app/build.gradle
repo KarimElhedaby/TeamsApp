@@ -52,11 +52,18 @@ dependencies {
     compile 'com.github.brnunes:swipeablerecyclerview:1.0.2'
     compile 'io.huannguyen.swipeablerv:swipeable-rv:1.0.2'
 
-//Retrofit
+    //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.0.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
 
-    implementation 'com.cloudinary:cloudinary-android:1.22.0'
+    //treeview
+    implementation 'de.blox.treeview:treeview:0.1.0'
 
+    //mention
+    implementation 'com.otaliastudios:autocomplete:1.1.0'
 
+    // glide
+    compile 'com.github.bumptech.glide:glide:4.3.0'
+
+    compile 'com.github.gturedi:stateful-layout:1.2.1'
 }

@@ -75,16 +75,22 @@
             android:name=".community.ui.CreateCommunityActivity"
             android:label="Create Community"
             android:parentActivityName=".community.ui.CommunityActivity" />
-
-        <meta-data
-            android:name="CLOUDINARY_URL"
-            android:value="cloudinary://@dellx1eea" />
-
         <activity
             android:name=".group.ui.CreateGroup_Activity"
             android:label="Create Group"
             android:parentActivityName=".community.ui.CreateCommunityActivity" />
-        <activity android:name=".members.ui.AddMember_Activity"></activity>
+        <activity
+            android:name=".members.ui.AddMember_Activity"
+            android:label="Create Structure"
+            android:parentActivityName=".group.ui.CreateGroup_Activity" />
+        <activity
+            android:name=".group.ui.GroupActivity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".members.ui.MemberView_Activity"
+            android:label="@string/title_activity_member_view_"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

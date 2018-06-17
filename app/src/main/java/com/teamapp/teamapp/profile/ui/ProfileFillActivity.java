@@ -32,25 +32,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.Priority;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.androidnetworking.interfaces.UploadProgressListener;
-import com.cloudinary.Cloudinary;
-import com.cloudinary.android.MediaManager;
-import com.cloudinary.android.policy.TimeWindow;
-import com.cloudinary.android.policy.UploadPolicy;
-import com.cloudinary.utils.ObjectUtils;
 import com.teamapp.teamapp.R;
-import com.teamapp.teamapp.community.model.Community;
 import com.teamapp.teamapp.profile.adapter.ProfileFillAdapter;
 import com.teamapp.teamapp.profile.model.ProfileData;
-import com.teamapp.teamapp.ui.MainActivity;
 import com.teamapp.teamapp.utils.DatePickerFragment;
 import com.teamapp.teamapp.utils.RecyclerItemTouchHelper;
-
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -88,7 +74,6 @@ public class ProfileFillActivity
 
     @BindView(R.id.profileF_dateB)
     Button profileF_date_B;
-
 
 //    @BindView(R.id.profile_interestsF_ET)
 //    EditText profileF_interestes_ET;
@@ -131,8 +116,7 @@ public class ProfileFillActivity
         ButterKnife.bind(this);
 //        data_interest_List = new ArrayList<>();
         data_skill_list = new ArrayList<>();
-        MediaManager.init(this);
-//        profileF_interest_RV.setLayoutManager
+        //        profileF_interest_RV.setLayoutManager
 //                (new LinearLayoutManager(this,
 //                        LinearLayoutManager.VERTICAL, false));
 
@@ -188,7 +172,8 @@ public class ProfileFillActivity
     }
 
     File photoFile;
-    Uri photoURI ;
+    Uri photoURI;
+
     @OnClick(R.id.profileF_IV)
     void showImagePickerDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -214,11 +199,11 @@ public class ProfileFillActivity
                                             ex.printStackTrace();
                                         }
                                         if (photoFile != null) {
-                                             photoURI = FileProvider.getUriForFile(ProfileFillActivity.this,
+                                            photoURI = FileProvider.getUriForFile(ProfileFillActivity.this,
                                                     "com.teamapp.teamapp.Fileprovider", photoFile);
                                             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                                             startActivityForResult(takePictureIntent, CAMERA_REQUEST);
-                                         }
+                                        }
                                     }
                                 }
                             }
@@ -271,58 +256,17 @@ public class ProfileFillActivity
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.ENGLISH).format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         imageFile = File.createTempFile(
                 imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
+                ".jpg"      /* suffix */
+
         );
 
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = imageFile.getAbsolutePath();
         return imageFile;
     }
-//
-//    void SendImage (){
-//        final Community community = new Community( imageFile );
-//        AndroidNetworking.upload(" http://team-space.000webhostapp.com/index.php/api/community/add")
-//                .addMultipartFile(String.valueOf(community.getCommunity_picture()),imageFile)
-//                .setTag("uploadTest")
-//                .setPriority(Priority.HIGH)
-//                .build()
-//                .setUploadProgressListener(new UploadProgressListener() {
-//                    @Override
-//                    public void onProgress(long bytesUploaded, long totalBytes) {
-//                        // do anything with progress
-//                    }
-//                })
-//                .getAsJSONObject(new JSONObjectRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//
-//                        // do anything with response
-//                        Log.d("postData", "true send");
-////                            Toast.makeText(RegisterActivity.this, error.getMessage(),
-////                                    Toast.LENGTH_LONG).show();
-////
-////                            Log.d("Data", user.toString());
-//
-//                        Toast.makeText(ProfileFillActivity.this, "data send true",
-//                                Toast.LENGTH_LONG).show();
-//                    }
-//                    @Override
-//                    public void onError(ANError error) {
-//                        // handle error
-//                        Log.d("postData", error.getMessage());
-////                            Toast.makeText(RegisterActivity.this, error.getMessage(),
-////                                    Toast.LENGTH_LONG).show();
-////
-////                            Log.d("Data", user.toString());
-//
-//                        Toast.makeText(ProfileFillActivity.this, "data send Errorly",
-//                                Toast.LENGTH_LONG).show();
-//                    }
-//                });
+
 
 //    }
 
@@ -331,21 +275,6 @@ public class ProfileFillActivity
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
             selectedImageUri = data.getData();
-            Map config = new HashMap();
-            config.put("cloud_name", "dellx1eea");
-            config.put("api_key", "218769539232644");
-            config.put("api_secret", "aFZL72YMfJQe_YiFnY9kBF1ZNDU");
-            Cloudinary cloudinary = new Cloudinary(config);
-            try {
-                Map uploadResult =  cloudinary.uploader().upload(photoFile.getAbsolutePath(),
-                        ObjectUtils.emptyMap());
-
-               String requestId = (String) uploadResult.get("url");
-
-                Toast.makeText(getApplicationContext(),requestId, Toast.LENGTH_LONG).show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_GRANTED) {

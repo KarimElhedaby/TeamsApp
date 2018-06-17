@@ -44,6 +44,9 @@ public class User implements Serializable {
     @SerializedName("phone")
     @Expose
     private String phone;
+    @SerializedName("Picture")
+    @Expose
+    private String Picture;
 
 
     public User(int user_id, String email, String name, String password, String gender) {
@@ -65,6 +68,9 @@ public class User implements Serializable {
     public User() {
     }
 
+    public User(String name) {
+        this.name = name;
+    }
 
     public String getReligious() {
         return religious;
@@ -156,6 +162,14 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
+    public String getPicture() {
+        return Picture;
+    }
+
+    public void setPicture(String picture) {
+        Picture = picture;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -170,6 +184,7 @@ public class User implements Serializable {
                 ", work='" + work + '\'' +
                 ", birthday='" + birthday + '\'' +
                 ", phone='" + phone + '\'' +
+                ", Picture='" + Picture + '\'' +
                 '}';
     }
 }

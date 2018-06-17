@@ -68,6 +68,8 @@
     <string name="community_description">Community description</string>
     <string name="write_a_brief_description_about_community">Write a Brief Description  Here! </string>
     <string name="enterdescription">Enter Description</string>
+    <string name="title_activity_group">GroupActivity</string>
+    <string name="title_activity_member_view_">MemberView_Activity</string>
 
 
 </resources>

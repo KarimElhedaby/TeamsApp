@@ -34,6 +34,8 @@ public class Utilities {
             if (window != null)
                 progressDialog.getWindow().setBackgroundDrawable
                         (new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            progressDialog.onBackPressed();
+            progressDialog.setCancelable(true);
             progressDialog.show();
         } catch (Exception e) {
             e.printStackTrace();
