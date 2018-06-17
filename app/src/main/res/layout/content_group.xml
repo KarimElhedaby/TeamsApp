@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.teamapp.teamapp.group.ui.GroupActivity"
+    tools:showIn="@layout/activity_group">
+
+    <com.gturedi.views.StatefulLayout
+        android:id="@+id/stateful"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:stfAnimationEnabled="true"
+        app:stfInAnimation="@android:anim/slide_in_left"
+        app:stfOutAnimation="@android:anim/slide_out_right">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_groups"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp" />
+    </com.gturedi.views.StatefulLayout>
+</android.support.constraint.ConstraintLayout>
